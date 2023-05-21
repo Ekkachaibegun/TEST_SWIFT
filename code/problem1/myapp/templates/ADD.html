@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    <title>form page web site</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<h2 style="color:red" class="text-center"> Hello this is add list page</h2>
+
+<form method="post" action="ADD"><!-- sent to path form(set that call views) -->
+    {% csrf_token %}<!-- CSR token use with post-->
+    <div class="form-group">
+        <label for="Topic">Topic</label>
+        <input type="text" name="Topic" class="form-control">
+    </div>
+    <div class="form-group mb-3">
+        <label for="Detail">Detail</label>
+        <input type="text" name="Detail" class="form-control">
+    </div>
+    <input type="submit" value="save" class="btn btn-success">
+</form>
+
+
+{% endblock %}

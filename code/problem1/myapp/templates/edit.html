@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    <title>modify form page web site</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<h2 style="color:red" class="text-center"> Hello this is modify form page</h2>
+<!-- <form mrthod="get"> -->
+<form method="post" action=""><!-- sent to path form(set that call views) -->
+    {% csrf_token %}<!-- CSR token use with post-->
+    <div class="form-group">
+        <label for="Topic">Topic</label>
+        <input type="text" name="Topic" class="form-control" value="{{person.name}}">
+    </div>
+    <div class="form-group mb-3">
+        <label for="Detail">Detail</label>
+        <input type="text" name="Detail" class="form-control" value="{{person.age}}">
+    </div>
+    <input type="submit" value="update" class="btn btn-success">
+</form>
+
+
+{% endblock %}
+

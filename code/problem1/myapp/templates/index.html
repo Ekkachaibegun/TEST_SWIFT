@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>this is frist page</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <h2>ALL LIST</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                <strong>{{message}}</strong>
+            </div>
+            
+        {% endfor %}
+    {% endif %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Detail</th>
+            <th scope="col">date_add</th>
+            <th scope="col">modify</th>
+            <th scope="col">delete</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+
+          {% for task in all_task %}
+          <tr>
+            <th scope="row">{{task.id}}</th>
+            <td>{{task.Topic}}</td>
+            <td>{{task.Detail}}</td>
+            <td>{{task.date}}</td>
+            <td><a href="edit/{{task.id}}" class="btn btn-warning">modify</a></td>
+
+            <td>
+                <a href="delete/{{task.id}}" 
+                class="btn btn-danger"
+                onclick="return confirm('delete{{task.id}}???')"
+                >delete</a>
+            </td>
+
+          </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+
+{% endblock %}
